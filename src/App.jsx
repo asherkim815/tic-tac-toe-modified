@@ -3,11 +3,19 @@ import Board from './Board';
 import History from './History';
 
 export default function App() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [history, setHistory] = useState([[Array(9).fill(null), null]]);
   const [currentMove, setCurrentMove] = useState(0);
-  const [sortOrder, setSortOrder] = useState('Ascending');
-  const currentBoard = [...history[currentMove]];
+  const [sortOrder, setSortOrder] = useState('ascending');
+  const currentBoard = [...history[currentMove][0]];
   const xIsNext = currentMove % 2 === 0;
+  const winner = decideWinner(currentBoard);
+  const boardStatus = winner
+    ? `${winner} won`
+    : currentMove === 9
+    ? 'Draw'
+    : xIsNext
+    ? 'Next player: X'
+    : 'Next player: O';
 
   function decideWinner(currentBoard) {
     const winnerLines = [
@@ -30,31 +38,21 @@ export default function App() {
         document
           .querySelectorAll(`.square${a},.square${b},.square${c}`)
           .forEach((element) => {
-            console.log(element);
-            element.style.backgroundColor = 'red';
+            element.style.color = '#d9a404';
           });
         return currentBoard[a];
       }
     }
-
+    document.querySelectorAll(`.square`).forEach((element) => {
+      element.style.color = '#222601';
+    });
     return null;
   }
 
-  function handleBoardStatus(currentBoard) {
-    const winner = decideWinner(currentBoard);
-    return winner
-      ? `Winner is: ${winner}`
-      : currentMove === 9
-      ? 'Draw'
-      : xIsNext
-      ? 'Next player: X'
-      : 'Next player: O';
-  }
-
   function handleBoardClick(index) {
-    if (currentBoard[index] || decideWinner(currentBoard)) return;
+    if (currentBoard[index] || winner) return;
     currentBoard[index] = xIsNext ? 'X' : 'O';
-    setHistory([...history, currentBoard]);
+    setHistory([...history, [currentBoard, index]]);
     setCurrentMove(currentMove + 1);
   }
 
@@ -65,26 +63,30 @@ export default function App() {
   }
 
   function reverseSortOrder() {
-    sortOrder === 'Ascending'
-      ? setSortOrder('Descending')
-      : setSortOrder('Ascending');
+    sortOrder === 'ascending'
+      ? setSortOrder('descending')
+      : setSortOrder('ascending');
   }
 
   return (
     <>
       <main>
-        <Board
-          currentBoard={currentBoard}
-          handleBoardStatus={handleBoardStatus}
-          handleBoardClick={handleBoardClick}
-        ></Board>
-        <History
-          currentMove={currentMove}
-          history={history}
-          handleHistoryClick={handleHistoryClick}
-          sortOrder={sortOrder}
-          reverseSortOrder={reverseSortOrder}
-        ></History>
+        <h1>Tic-Tac-Toe</h1>
+        <div className="components-container">
+          <Board
+            boardStatus={boardStatus}
+            currentBoard={currentBoard}
+            handleBoardClick={handleBoardClick}
+          />
+          <History
+            boardStatus={boardStatus}
+            currentMove={currentMove}
+            handleHistoryClick={handleHistoryClick}
+            history={history}
+            sortOrder={sortOrder}
+            reverseSortOrder={reverseSortOrder}
+          />
+        </div>
       </main>
     </>
   );

@@ -1,9 +1,5 @@
-export default function Board({
-  currentBoard,
-  handleBoardStatus,
-  handleBoardClick,
-}) {
-  const boardDOM = currentBoard.map((value, index) => {
+export default function Board({ boardStatus, currentBoard, handleBoardClick }) {
+  const boardSquares = currentBoard.map((value, index) => {
     return (
       <div
         className={`square square${index}`}
@@ -17,8 +13,8 @@ export default function Board({
 
   return (
     <section>
-      <h2>{handleBoardStatus(currentBoard)}</h2>
-      <div className="board-main">{boardDOM}</div>
+      <h2>{boardStatus}</h2>
+      <div className="board-main">{boardSquares}</div>
     </section>
   );
 }
