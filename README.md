@@ -11,7 +11,7 @@ Modified app: https://asherkim815.github.io/tic-tac-toe-modified/
 ## Original Version Screenshot
 
 ![tic-tac-toe original version screenshot - main page](screenshots/tic-tac-toe-original-screenshot.jpg)
-![tic-tac-toe original version screenshot - main page zoomed in](screenshots/tic-tac-toe-original-screenshot-zoomed-in.jpg)
+![tic-tac-toe original version screenshot - main page responsive](screenshots/tic-tac-toe-original-screenshot-responsive.jpg)
 
 ## About the App
 
