@@ -69,25 +69,23 @@ export default function App() {
   }
 
   return (
-    <>
-      <main>
-        <h1>Tic-Tac-Toe</h1>
-        <div className="components-container">
-          <Board
-            boardStatus={boardStatus}
-            currentBoard={currentBoard}
-            handleBoardClick={handleBoardClick}
-          />
-          <History
-            boardStatus={boardStatus}
-            currentMove={currentMove}
-            handleHistoryClick={handleHistoryClick}
-            history={history}
-            sortOrder={sortOrder}
-            reverseSortOrder={reverseSortOrder}
-          />
-        </div>
-      </main>
-    </>
+    <main>
+      <h1>Tic-Tac-Toe</h1>
+      <div className="container">
+        <Board
+          boardStatus={boardStatus}
+          currentBoard={currentBoard}
+          handleBoardClick={handleBoardClick}
+        />
+        <History
+          boardStatus={boardStatus}
+          currentMove={currentMove}
+          handleHistoryClick={handleHistoryClick}
+          history={history}
+          sortOrder={sortOrder}
+          reverseSortOrder={reverseSortOrder}
+        />
+      </div>
+    </main>
   );
 }

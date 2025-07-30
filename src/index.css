@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
-  /* --font-size: 15px; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   color: #222601;
-  /* font-size: var(--font-size); */
 }
 
 body {
@@ -15,40 +13,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
-/* main: h1, .div.components-container */
+/* main */
 main {
   padding: 50px 0;
 }
 
-h1 {
+main h1 {
   padding-bottom: 50px;
-  /* font-size: calc(var(--font-size) * 2); */
-  text-align: center;
 }
 
-div.components-container {
+main div.container {
   display: flex;
   justify-content: center;
   gap: 50px;
   flex-wrap: wrap;
 }
 
-/* section (Board.jsx & History.jsx): h2, div */
+/* section (Board & History) */
 section {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
-h2 {
-  /* font-size: calc(var(--font-size) * 1.5); */
-  text-align: center;
-}
-
 /* Board.jsx */
-div.board-main {
+#board div.board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
@@ -57,7 +49,7 @@ div.board-main {
   background-color: #d9a404;
 }
 
-div.square {
+#board div.square {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,13 +59,13 @@ div.square {
 }
 
 /* History.jsx */
-div.history-main {
+#history div.history {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-button {
+#history button {
   padding: 5px;
   width: 100%;
   border: 1px solid #594302;
@@ -85,30 +77,30 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+#history button:hover {
   background-color: white;
   border: 1px solid #594302;
   color: #594302;
 }
 
-button.restart {
+#history button.restart {
   border: 1px solid #bf7e04;
   background-color: #bf7e04;
 }
 
-button.restart:hover {
+#history button.restart:hover {
   background-color: white;
   border: 1px solid #bf7e04;
   color: #bf7e04;
 }
 
-ul {
+#history ul {
   display: flex;
   flex-direction: column;
   gap: 5px;
   list-style-type: none;
 }
 
-p {
+#history p {
   padding: 5px 10px;
 }

@@ -12,9 +12,9 @@ export default function Board({ boardStatus, currentBoard, handleBoardClick }) {
   });
 
   return (
-    <section>
+    <section id="board">
       <h2>{boardStatus}</h2>
-      <div className="board-main">{boardSquares}</div>
+      <div className="board">{boardSquares}</div>
     </section>
   );
 }

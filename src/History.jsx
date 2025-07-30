@@ -74,9 +74,9 @@ export default function History({
   if (sortOrder === 'descending') pastMoves.reverse();
 
   return (
-    <section>
+    <section id="history">
       <h2>History</h2>
-      <div className="history-main">
+      <div className="history">
         <button onClick={() => reverseSortOrder()}>
           Sort order: {sortOrder}
         </button>
